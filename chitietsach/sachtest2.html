@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/khungmucluc/grid.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+        @import url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap);
+
+        * {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+  
+}
+:root {
+  --green: #27ae60;
+  --black: #192a56;
+  --light-color: #666;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0.1);
+  --white-color: #fff;
+  --primary-color:red;
+  --text-color: #333;
+  --star-gold-color: #FFCE3E
+  /* --header-height: 120px;
+  --navbar-height: 34px;
+  --header-with-search-height: calc(var(--header-height) - var(--navbar-height)); */
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li {
+  float: left;
+}
+header ul.sub-user {
+  position: absolute;
+  color: var(--green);
+  background: #eee;
+  padding: 15px 20px;
+  border-radius: 15px;
+  display: none;
+  
+}
+.sub-user-text{
+  text-decoration: none;
+}
+header li:hover > ul.sub-user {
+  display: block;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+}
+
+header .logo {
+  color: var(--black);
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+header .logo i {
+  color: var(--green);
+}
+
+header .navbar a {
+  color: var(--light-color);
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 3.5rem;
+}
+
+header .navbar a.active,
+header .navbar a:hover {
+  color: #fff;
+  background: var(--green);
+}
+
+header .icon i,
+header .icon a {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  width: 4.5rem;
+  text-align: center;
+  font-size: 1.7rem;
+  color: var(--black);
+  border-radius: 50%;
+  background: #eee;
+}
+
+header .icon i:hover,
+header .icon a:hover {
+  color: #fff;
+  background: var(--green);
+  transform: rotate(360deg);
+}
+
+header .icon #bars {
+  display: none;
+}
+
+#search-form {
+  position: fixed;
+  top: -110%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1004;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+#search-form.active {
+  top: 0;
+}
+
+#search-form #search-box {
+  width: 50rem;
+  border-bottom: 0.1rem solid #fff;
+  padding: 1rem 0;
+  color: #fff;
+  font-size: 3rem;
+  text-transform: none;
+  background: none;
+}
+#search-form #search-box::placeholder {
+  color: #eee;
+}
+#search-form #search-box::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+#search-form label {
+  color: #fff;
+  cursor: pointer;
+  font-size: 3rem;
+}
+#search-form label:hover {
+  color: var(--green);
+}
+#search-form #close {
+  position: absolute;
+  color: #fff;
+  cursor: pointer;
+  top: 2rem;
+  right: 3rem;
+  font-size: 5rem;
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  header {
+    padding: 1rem 2rem;
+  }
+  footer {
+    padding: 1rem 2rem;
+  }
+}
+@media (max-width: 768px) {
+  header .icon #bars {
+    display: inline-block;
+  }
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 0.1rem solid rgba(0, 0, 0.2);
+    border-bottom: 0.1rem solid rgba(0, 0, 0.2);
+    padding: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  header .navbar a {
+    display: block;
+    padding: 1.5rem;
+    margin: 1rem;
+    font-size: 2rem;
+    background: #eee;
+  }
+  
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+
+
+
+.contentt{
+    margin-top: 100px;
+}
+.book-1{
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.titlte{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+.titlte h2{
+    font-size: 30px;
+}
+.TG{
+    margin-top: 10px;
+    font-size: 1.6rem;
+}
+.titlte-price{
+    display: flex;
+    /* margin-left: 10px; */
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+.titlte-price__old{
+    margin-left: 10px;
+  font-size: 3rem;
+  color: #666;
+  text-decoration: line-through;
+}
+.titlte-price__current{
+    font-size: 3rem;
+  color: var(--green);
+  margin-left: 10px;
+}
+
+.add-to-cart .btn{
+    min-width: 125px;
+  height: 50px;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  font-size: 2rem;
+  padding: 0 15px;
+  outline: none;
+  cursor: pointer;
+  color: var(--text-color);
+  align-items: center;
+  justify-content: center;
+  line-height: 1.6rem;
+  display: inline-flex;
+  color:var(--white-color);
+  background-color: var(--green);
+  margin-left: 5px;
+}
+.add-to-cart-buy-other{
+    margin-top: 17px;
+    margin-left: 7px;
+   
+}
+.add-to-cart-buy-other__font{
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+.add-to-cart-buy-other__icon {
+  margin-left: 0.5rem;
+}
+.book-introduction_1-font{
+  margin-left: 26px;
+  color: var(--green);
+}
+.book-introduction_1-border li{
+  float: none;
+  font-size: 1.6rem;
+  border-style: groove;
+  border: 1px solid black;
+  margin-left: 10px;
+}
+.book-introduction{
+  font-size: 1.7rem;
+  margin-bottom: 80px;
+  /* margin-top: 28px; */
+}
+.book-introduction h1{
+  color: var(--green);
+}
+/* footer */
+.footer {
+  /* position: fixed; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: green;
+  color: white;
+  text-align: left;
+  clear: both;
+  border-top: 4px solid var(--green);
+  padding-top: 16px;
+}
+.footer__heading{
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: var(--white-color);
+  
+}
+.footer li{
+  float: none;
+}
+.footer-list{
+  padding-left: 0;
+  list-style: none;
+}
+.footer-item a{
+  text-decoration: none;
+  font-size: 1.3rem;
+  color:  #dfe4ea;
+  padding: 2px 0;
+  display: block;
+}
+.footer-item{
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #dfe4ea;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+.footer-item-1{
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: var(--text-color);
+  padding: 5px 0;
+  text-align: center;
+  
+}
+
+
+.footer-item a:hover{
+  color: var(--white-color);
+}
+.footer-item-icon{
+  font-size: 1.6rem;
+  margin: -3px 8px 0 0;
+}
+.footer__bottom{
+ 
+  padding: 12px 0;
+}
+.footer_text{
+  margin: 0;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+
+
+
+    </style>
+</head>
+  
+  <body>
+    
+    <div class="web">
+      <header>
+        <a href="#" class="logo"><i class="fas fa-book" style="margin-right: 4px;"></i>StoreĐV.</a>
+
+        <nav class="navbar">
+          <a style="text-decoration: none" class="active" href="#home"
+            >Trang chủ</a
+          >
+          <a style="text-decoration: none" href="#menu">Mục lục</a>
+          <a style="text-decoration: none" href="/test/test.html">Liên hệ</a>
+        </nav>
+        <div class="icon">
+          <ul>
+            <li><i class="fas fa-bars" id="bars"></i></li>
+            <li><i class="fas fa-search" id="search-icon"></i></li>
+            <li><a href="#" class="fas fa-shopping-cart"></a></li>
+            <li>
+              <a href="#" class="fas fa-user"></a>
+              <ul class="sub-user">
+                <li><a href="/login/login.html" class="sub-user-text" id="login">Đăng Nhập</a></li>
+                <br />
+                <li><a href="/signup/signup.html" class="sub-user-text" id="lo">Đăng Ký</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </header>
+      
+      <form action="" id="search-form">
+        <input
+          type="search"
+          placeholder="Tìm kiếm..."
+          name=""
+          id="search-box"
+        />
+        <label for="search-box" class="fas fa-search"></label>
+        <i class="fas fa-times" id="close"></i>
+      </form>
+      <div class="contentt">
+        <div class="grid wide">
+            <div class="roww">
+                <div>
+                <div class="col l-2 m-6 c-12">
+                    <div class="book-1">
+                        <img src="https://bizweb.dktcdn.net/thumb/large/100/363/455/products/lichsuvntunguongoctoigiuatkxx-c83d5c96-9893-4c9d-95f4-3581dcecfbc6.jpg?v=1710322762197" alt="">
+                    </div>
+                </div>
+              </div>
+              <div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="titlte">
+                        <h2>LỊCH SỬ VIỆT NAM TỪ NGUỒN GỐC ĐẾN GIỮA THẾ KỶ XX</h2>
+                        <div class="TG">
+                            <h4>Tác giả: LÊ THÀNH KHÔI</h4>
+                        </div>
+                        <div class="titlte-price">
+                            <span class="titlte-price__current">59.599đ</span>
+                            <span class="titlte-price__old">100.000đ</span>
+                        </div><hr>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart__btn btn" type="button" onclick="alert('Đã thêm vào giỏ hàng')">Thêm vào giỏ hàng</button>
+                            <a class="add-to-cart__btn btn" href=""> Mua ngay</a>
+                        </div>
+                        <div class="add-to-cart-buy-other" >
+                            
+                            <span class="add-to-cart-buy-other__font">Mua sách trên sàn TMĐT</span>
+                            
+                            <a class="add-to-cart-buy-other__icon" href="https://www.lazada.vn/#?">
+                                <img src="//bizweb.dktcdn.net/100/363/455/themes/918830/assets/lazada-icon.png?1704690471681" alt="">
+                            </a>
+                            <a class="add-to-cart-buy-other__icon" href="https://shopee.vn/">
+                                <img src="//bizweb.dktcdn.net/100/363/455/themes/918830/assets/shopee-icon.png?1704690471681" alt="">
+                            </a>
+                        
+                        </div>
+                        <div>
+                            
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            
+        </div>
+      </div>
+      <div class="describe-book">
+        <div class="grid wide">
+          <div class="roww">
+            <div class="col l-9 m-7 c-6">
+              <div class="book-introduction">
+                <h1>Giới thiệu sách</h1>
+                <!-- <h3>THÊM MỘT CÔNG TRÌNH ĐẦY QUÝ GIÁ CỦA ĐÀO DUY ANH ĐƯỢC NHÃ NAM GỬI ĐẾN BẠN ĐỌC!!</h3> -->
+                <span>Tác phẩm Lịch sử Việt Nam, từ nguồn gốc đến giữa thế kỷ XX này là sự kết hợp của hai chuyên khảo mang tính kinh điển về lịch sử và văn hóa Việt Nam của Giáo sư Lê Thành Khôi, người thuộc về số ít các sử gia Việt đương đại quan trọng nhất. Đó là cuốn Le Viêt-Nam, Histoire et Civilisation (Việt Nam, Lịch sử và Văn minh, Nxb Minuit, Paris, 1955) và Histoire du Viêt Nam, des origines à 1858 (Lịch sử Việt Nam, từ nguồn gốc đến năm 1858, Nxb Sud-Est Asie, Paris, 1982). Công trình từ lâu đã được các nhà Việt Nam coi như sách tham khảo căn bản khi nghiên cứu về lịch sử Việt Nam. Đây là lần đầu tiên tác phẩm được coi như kiệt tác sử học này được xuất bản bằng tiếng Việt.</span><br><br>
+                <span>“Cũng như nhiều người nghiên cứu Việt Nam, tôi đã sử dụng, trong gần ba mươi năm, quyển Le Việt Nam, Histoire et civilisation của Lê Thành Khôi do Editionds de Minuit xuất bản năm 1955. Nhưng sau đó tôi gần như hoàn toàn lệ thuộc vào kiệt tác của anh mà nhiều người đã ca ngợi: L’Histoire du Việt-Nam des origines à 1858, do Sud-Est Asie xuất bản năm 1982.”</span>
+                
+              </div>
+              
+            </div>
+            <div class="col l-3 m-5 c-6">
+              <div class="book-introduction_1">
+                <div class="book-introduction_1-font">
+                <h2>Thông tin chi tiết </h2>
+              </div>
+                <div class="book-introduction_1-border">
+                  <ul>
+                    <li>
+                      Tác giả: LÊ THÀNH KHÔI
+                    </li>
+                    <li>
+                      Dịch giả: NGUYỄN NGHỊ
+                    </li>
+                    <li>
+                      Nhà xuất bản: Thế Giới
+                    </li>
+                    <li>
+                      Kích thước: Đang cập nhật
+                    </li>
+                    <li>
+                      Số trang: 640
+                    </li>
+                    <li>
+                      Ngày phát hành: 2024
+                    </li>
+                    
+                  </ul>
+                </div>
+
+                
+              </div>
+            </div>
+
+          </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="grid wide">
+          <div class="roww">
+            <div class="col l-2-4 m-8 c-6">
+              <h3 class="footer__heading"> Showroom</h3>
+                <ul class="footer-list">
+                  <li class="footer-item">
+                    <span>
+                      <i class="footer-item-icon fa-solid fa-location-dot"></i> Số 59, Đỗ Quang, Trung Hoà, Cầu Giấy, Hà Nội.</span>
+                  </li>
+                  <li class="footer-item">
+                    <a href="">
+                      <i class="footer-item-icon fa-solid fa-envelope"></i> info@ducvu.vn
+                    </a>
+                  </li>
+                  <li class="footer-item">
+                    <a href="">
+                      <i class="footer-item-icon fa-solid fa-phone"></i> 023241241202</a>
+                  </li>
+                </ul>
+            </div>
+            <div class="col l-2-4 m-8 c-6">
+              <h3  class="footer__heading">Giới thiệu</h3>
+              <ul class="footer-list">
+                <li class="footer-item">
+                  <a href="">Về Đức Vũ</a>
+                </li>
+                <li class="footer-item">
+                  <a href="">Tuyển dụng</a>
+                </li>
+                <li class="footer-item">
+                  <a href="">Liên hệ với chúng tôi</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col l-2-4 m-8 c-6">
+              <h3  class="footer__heading">Chính sách </h3>
+              <ul class="footer-list">
+                
+                <li class="footer-item">
+                  <a href="">Chính sách bảo mật</a>
+                </li>
+              
+            
+                <li class="footer-item">
+                  <a href="">Chính sách đổi trả/hoàn tiền</a>
+                </li>
+                <li class="footer-item">
+                  <a href="">Chính sách thanh toán/vận chuyển</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col l-2-4 m-8 c-6">
+              <h3  class="footer__heading">Phương thức thanh toán </h3>
+              <ul class="footer-list" >
+                <li class="footer-item-1">
+                  <img src="https://down-vn.img.susercontent.com/file/d4bbea4570b93bfd5fc652ca82a262a8" alt="">
+                  <img src="https://down-vn.img.susercontent.com/file/38fd98e55806c3b2e4535c4e4a6c4c08" alt="">
+                  <img src="https://down-vn.img.susercontent.com/file/bc2a874caeee705449c164be385b796c" alt="">
+                </li>
+                <li class="footer-item-1">
+                  <img src="https://down-vn.img.susercontent.com/file/a0a9062ebe19b45c1ae0506f16af5c16" alt="">
+                  <img src="https://down-vn.img.susercontent.com/file/2c46b83d84111ddc32cfd3b5995d9281" alt="">
+                  <img src="https://down-vn.img.susercontent.com/file/5e3f0bee86058637ff23cfdf2e14ca09" alt="">
+                </li>
+              </ul>
+            </div>
+            <div class="col l-2-4 m-8 c-6">
+              <h3  class="footer__heading"> Phương thức giao hàng</h3>
+              <ul class="footer-list">
+                <li class="footer-item-1">
+                  <img src="https://down-vn.img.susercontent.com/file/vn-50009109-159200e3e365de418aae52b840f24185" alt="">
+                  <img src="https://down-vn.img.susercontent.com/file/0d349e22ca8d4337d11c9b134cf9fe63" alt="">
+                  <img src="https://down-vn.img.susercontent.com/file/6e3be504f08f88a15a28a9a447d94d3d" alt="">
+                </li>
+                <li class="footer-item-1">
+                  <img src="https://down-vn.img.susercontent.com/file/vn-50009109-64f0b242486a67a3d29fd4bcf024a8c6" alt="">
+                  <img src="https://down-vn.img.susercontent.com/file/59270fb2f3fbb7cbc92fca3877edde3f" alt="">
+                  <img src="https://down-vn.img.susercontent.com/file/vn-50009109-ec3ae587db6309b791b78eb8af6793fd" alt="">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <div class="roww">
+            <div class="col l-12 m-12 c-12">
+            <p class="footer_text">© 2024 - Bản quyền thuộc về Công ty TNHH Đức Vũ</p>
+          </div>
+        </div>
+        </div>
+      </footer>
+      </div>
+    <script src="script.js"></script>
+  </body>
+</html>

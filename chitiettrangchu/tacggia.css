@@ -1,0 +1,341 @@
+
+@import url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap);
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+  
+}
+
+ 
+:root {
+  --green: #27ae60;
+  --black: #192a56;
+  --light-color: #666;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0.1);
+  --white-color: #fff;
+  --primary-color:red;
+  --text-color: #333;
+  --star-gold-color: #FFCE3E
+  /* --header-height: 120px;
+  --navbar-height: 34px;
+  --header-with-search-height: calc(var(--header-height) - var(--navbar-height)); */
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li {
+  float: left;
+}
+header ul.sub-user {
+  position: absolute;
+  color: var(--green);
+  background: #eee;
+  padding: 15px 20px;
+  border-radius: 15px;
+  display: none;
+  
+}
+.sub-user-text{
+  text-decoration: none;
+}
+header li:hover > ul.sub-user {
+  display: block;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+}
+
+header .logo {
+  color: var(--black);
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+header .logo i {
+  color: var(--green);
+}
+
+header .navbar a {
+  color: var(--light-color);
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 3.5rem;
+  
+}
+
+header .navbar a.active,
+header .navbar a:hover {
+  color: #fff;
+  background: var(--green);
+}
+
+header .icon i,
+header .icon a {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  width: 4.5rem;
+  text-align: center;
+  font-size: 1.7rem;
+  color: var(--black);
+  border-radius: 50%;
+  background: #eee;
+}
+
+header .icon i:hover,
+header .icon a:hover {
+  color: #fff;
+  background: var(--green);
+  transform: rotate(360deg);
+}
+
+header .icon #bars {
+  display: none;
+}
+
+#search-form {
+  position: fixed;
+  top: -110%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1004;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+#search-form.active {
+  top: 0;
+}
+
+#search-form #search-box {
+  width: 50rem;
+  border-bottom: 0.1rem solid #fff;
+  padding: 1rem 0;
+  color: #fff;
+  font-size: 3rem;
+  text-transform: none;
+  background: none;
+}
+#search-form #search-box::placeholder {
+  color: #eee;
+}
+#search-form #search-box::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+#search-form label {
+  color: #fff;
+  cursor: pointer;
+  font-size: 3rem;
+}
+#search-form label:hover {
+  color: var(--green);
+}
+#search-form #close {
+  position: absolute;
+  color: #fff;
+  cursor: pointer;
+  top: 2rem;
+  right: 3rem;
+  font-size: 5rem;
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  header {
+    padding: 1rem 2rem;
+  }
+  footer {
+    padding: 1rem 2rem;
+  }
+}
+@media (max-width: 768px) {
+  header .icon #bars {
+    display: inline-block;
+  }
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 0.1rem solid rgba(0, 0, 0.2);
+    border-bottom: 0.1rem solid rgba(0, 0, 0.2);
+    padding: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  header .navbar a {
+    display: block;
+    padding: 1.5rem;
+    margin: 1rem;
+    font-size: 2rem;
+    background: #eee;
+    
+  }
+  
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 50%;
+  }
+}
+#search-text{
+    border-radius: 30px;
+  }
+  #search-box{
+    background:none;
+    display: flex;
+    border-radius: 30px;
+  margin-right: 0.4rem;
+  }
+  #search-box #search-text{
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 15px;
+    width: 0px;
+    padding: 0px;
+   
+   
+  }
+  #search-box #search-btn{
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0.1rem;
+    font-size: 1.7rem;
+    margin-left: 0.5rem;
+    text-align: center;
+    margin-left: 1px;
+   
+  }
+  #search-box:hover #search-text{
+    width:175px;
+    padding: 10px;
+    background-color: #f1f2f6;
+  }
+  .footer {
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: green;
+    color: white;
+    text-align: left;
+    clear: both;
+    border-top: 4px solid var(--green);
+    padding-top: 16px;
+  }
+  .footer__heading{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: var(--white-color);
+    
+  }
+  .footer li{
+    float: none;
+  }
+  .footer-list{
+    padding-left: 0;
+    list-style: none;
+  }
+  .footer-item a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    color:  #dfe4ea;
+    padding: 2px 0;
+    display: block;
+  }
+  .footer-item{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #dfe4ea;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+  }
+  .footer-item-1{
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    padding: 5px 0;
+    text-align: center;
+    
+  }
+  
+  
+  .footer-item a:hover{
+    color: var(--white-color);
+  }
+  .footer-item-icon{
+    font-size: 1.6rem;
+    margin: -3px 8px 0 0;
+  }
+  .footer__bottom{
+   
+    padding: 12px 0;
+  }
+  .footer_text{
+    margin: 0;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  .author_menu-wed h1{
+    font-size: 3rem;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    color: #27ae60;
+  }
+.author_menu-wed img{
+    margin-top: 30px;
+}
+.author_menu-wed p{
+    font-size: 1.5rem;
+}
+.author_book-wed{
+    margin-top: 100px;
+    background-color: #F5F5F5;
+    margin-bottom: 50px;
+}
+.author_menu-wed{
+    margin-top: 100px;
+}

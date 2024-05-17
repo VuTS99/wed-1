@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/chitietsach/responsive.css">
+    <link rel="stylesheet" href="/khungmucluc/grid.css">
+    <title>Document</title>
+    <style>
+        #search-text{
+  border-radius: 30px;
+}
+#search-box{
+  background:none;
+  display: flex;
+  border-radius: 30px;
+margin-right: 0.4rem;
+}
+#search-box #search-text{
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 15px;
+  width: 0px;
+  padding: 0px;
+ 
+ 
+}
+#search-box #search-btn{
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.1rem;
+  font-size: 1.7rem;
+  margin-left: 0.5rem;
+  text-align: center;
+  margin-left: 1px;
+ 
+}
+#search-box:hover #search-text{
+  width:175px;
+  padding: 10px;
+  background-color: #f1f2f6;
+}
+        .cart{
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            padding-top: 30px;
+            margin-top:130px;
+            /* border: solid 1px #BBBBB5;
+            border-radius:5px ; */
+            font-size: 1.5rem;
+            margin-bottom: 300px;
+          
+        }
+        .cart table{
+            border: solid 1px #BBBBB5;
+            border-radius:5px ;
+           
+        }
+
+        .cart h2{
+            margin-bottom: 20px;
+        }
+        .cart table{
+            width: 100%;
+        }
+        .cart table thead tr th:first-child{
+            text-align: left;
+            padding-left: 20px;
+        }
+        .cart table thead tr th:last-child{
+            text-align: center;
+        
+        }
+        .cart table tbody tr td:last-child{
+            text-align: center;
+        }
+        .cart table tr td{
+            border-bottom: 1px solid #ddd;
+            padding: 12px 0;
+            padding-left: 20px;   
+
+        }
+     
+        * {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+  
+}
+
+ 
+:root {
+  --green: #27ae60;
+  --black: #192a56;
+  --light-color: #666;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0.1);
+  --white-color: #fff;
+  --primary-color:red;
+  --text-color: #333;
+  --star-gold-color: #FFCE3E
+  /* --header-height: 120px;
+  --navbar-height: 34px;
+  --header-with-search-height: calc(var(--header-height) - var(--navbar-height)); */
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li {
+  float: left;
+}
+header ul.sub-user {
+  position: absolute;
+  color: var(--green);
+  background: #eee;
+  padding: 15px 20px;
+  border-radius: 15px;
+  display: none;
+  
+}
+.sub-user-text{
+  text-decoration: none;
+}
+header li:hover > ul.sub-user {
+  display: block;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+}
+
+header .logo {
+  color: var(--black);
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+header .logo i {
+  color: var(--green);
+}
+
+header .navbar a {
+  color: var(--light-color);
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 3.5rem;
+  
+}
+
+header .navbar a.active,
+header .navbar a:hover {
+  color: #fff;
+  background: var(--green);
+}
+
+header .icon i,
+header .icon a {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  width: 4.5rem;
+  text-align: center;
+  font-size: 1.7rem;
+  color: var(--black);
+  border-radius: 50%;
+  background: #eee;
+}
+
+header .icon i:hover,
+header .icon a:hover {
+  color: #fff;
+  background: var(--green);
+  transform: rotate(360deg);
+}
+
+header .icon #bars {
+  display: none;
+}
+
+#search-form {
+  position: fixed;
+  top: -110%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1004;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+#search-form.active {
+  top: 0;
+}
+
+#search-form #search-box {
+  width: 50rem;
+  border-bottom: 0.1rem solid #fff;
+  padding: 1rem 0;
+  color: #fff;
+  font-size: 3rem;
+  text-transform: none;
+  background: none;
+}
+#search-form #search-box::placeholder {
+  color: #eee;
+}
+#search-form #search-box::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+#search-form label {
+  color: #fff;
+  cursor: pointer;
+  font-size: 3rem;
+}
+#search-form label:hover {
+  color: var(--green);
+}
+#search-form #close {
+  position: absolute;
+  color: #fff;
+  cursor: pointer;
+  top: 2rem;
+  right: 3rem;
+  font-size: 5rem;
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  header {
+    padding: 1rem 2rem;
+  }
+  footer {
+    padding: 1rem 2rem;
+  }
+}
+@media (max-width: 768px) {
+  header .icon #bars {
+    display: inline-block;
+  }
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 0.1rem solid rgba(0, 0, 0.2);
+    border-bottom: 0.1rem solid rgba(0, 0, 0.2);
+    padding: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  header .navbar a {
+    display: block;
+    padding: 1.5rem;
+    margin: 1rem;
+    font-size: 2rem;
+    background: #eee;
+    
+  }
+  
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 50%;
+  }
+}
+.footer {
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: green;
+    color: white;
+    text-align: left;
+    clear: both;
+    border-top: 4px solid var(--green);
+    padding-top: 16px;
+  }
+  .footer__heading{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: var(--white-color);
+    
+  }
+  .footer li{
+    float: none;
+  }
+  .footer-list{
+    padding-left: 0;
+    list-style: none;
+  }
+  .footer-item a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    color:  #dfe4ea;
+    padding: 2px 0;
+    display: block;
+  }
+  .footer-item{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #dfe4ea;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+  }
+  .footer-item-1{
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    padding: 5px 0;
+    text-align: center;
+    
+  }
+  
+  
+  .footer-item a:hover{
+    color: var(--white-color);
+  }
+  .footer-item-icon{
+    font-size: 1.6rem;
+    margin: -3px 8px 0 0;
+  }
+  .footer__bottom{
+   
+    padding: 12px 0;
+  }
+  .footer_text{
+    margin: 0;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><i class="fas fa-book" style="margin-right: 4px;" ></i>StoreĐV.</a>
+
+        <nav class="navbar">
+          <a style="text-decoration: none" class="active" href="#home"
+            >Trang chủ</a
+          >
+          <a style="text-decoration: none" href="#menu">Mục lục</a>
+          <a style="text-decoration: none" href="/test/test.html">Liên hệ</a>
+        </nav>
+        <div class="icon">
+          <ul>
+            <li><i class="fas fa-bars" id="bars"></i></li>
+          <form action="" id="search-box">
+            <input type="text" id="search-text">
+            <button id="search-btn"><i class="fas fa-search" id="search-icon"></i></button>
+
+          
+            <li><a href="#" class="fas fa-shopping-cart"></a></li>
+            <li>
+              <a href="#" class="fas fa-user"></a>
+              <ul class="sub-user">
+                <li><a href="/login/login.html" class="sub-user-text" id="login">Đăng Nhập</a></li>
+                <br />
+                <li><a href="/signup/signup.html" class="sub-user-text" id="lo">Đăng Ký</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </header>
+    <section class="cart">
+      <div class="grid wide">
+        <div class="roww">
+          <div class="col l-12 m-12 c-12">
+        <h2>Giỏ Hàng</h2>
+        <form action="">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>SL</th>
+                        <th>Chọn</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="display: flex;align-items: center;"><img style="width: 70px;" src="https://bizweb.dktcdn.net/thumb/large/100/363/455/products/khonggiaophebinhtieuluan06cm01.jpg?v=1705552511630" alt="">Khổng giáo phê bình tiểu luân</td>
+                        <td><p><span>100.000</span><sup>đ</sup></p></td>
+                        <td><input style="width: 30px;outline: none;" type="number" value="1" min="1"></td>
+                        <td style="cursor: pointer;">Xoá</td>
+                    </tr>
+                    <tr>
+                        <td style="display: flex;align-items: center;"><img style="width: 70px;" src="https://bizweb.dktcdn.net/thumb/large/100/363/455/products/khonggiaophebinhtieuluan06cm01.jpg?v=1705552511630" alt="">Khổng giáo phê bình tiểu luân</td>
+                        <td><p><span>100.000</span><sup>đ</sup></p></td>
+                        <td><input style="width: 30px;outline: none;" type="number" value="1" min="1"></td>
+                        <td style="cursor: pointer;">Xoá</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: right;" class="price-total">
+                <p style="font-weight: bold;margin-top: 10px;">Tổng tiền<span> 200.000</span><sup>đ</sup></p> 
+            </div>
+          </div>
+          </div>
+          </div> 
+        </form>
+    </section>
+    <footer class="footer">
+      <div class="grid wide">
+        <div class="roww">
+          <div class="col l-2-4 m-4 c-6">
+            <h3 class="footer__heading"> Showroom</h3>
+              <ul class="footer-list">
+                <li class="footer-item">
+                  <span>
+                    <i class="footer-item-icon fa-solid fa-location-dot"></i> Số 59, Đỗ Quang, Trung Hoà, Cầu Giấy, Hà Nội.</span>
+                </li>
+                <li class="footer-item">
+                  <a href="">
+                    <i class="footer-item-icon fa-solid fa-envelope"></i> info@ducvu.vn
+                  </a>
+                </li>
+                <li class="footer-item">
+                  <a href="">
+                    <i class="footer-item-icon fa-solid fa-phone"></i> 023241241202</a>
+                </li>
+              </ul>
+          </div>
+          <div class="col l-2-4 m-4 c-6">
+            <h3  class="footer__heading">Giới thiệu</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="">Về Đức Vũ</a>
+              </li>
+              <li class="footer-item">
+                <a href="">Tuyển dụng</a>
+              </li>
+              <li class="footer-item">
+                <a href="">Liên hệ với chúng tôi</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col l-2-4 m-4 c-6">
+            <h3  class="footer__heading">Chính sách </h3>
+            <ul class="footer-list">
+              
+              <li class="footer-item">
+                <a href="">Chính sách bảo mật</a>
+              </li>
+            
+          
+              <li class="footer-item">
+                <a href="">Chính sách đổi trả/hoàn tiền</a>
+              </li>
+              <li class="footer-item">
+                <a href="">Chính sách thanh toán/vận chuyển</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col l-2-4 m-4 c-6">
+            <h3  class="footer__heading">Phương thức thanh toán </h3>
+            <ul class="footer-list" >
+              <li class="footer-item-1">
+                <img src="https://down-vn.img.susercontent.com/file/d4bbea4570b93bfd5fc652ca82a262a8" alt="">
+                <img src="https://down-vn.img.susercontent.com/file/38fd98e55806c3b2e4535c4e4a6c4c08" alt="">
+                <img src="https://down-vn.img.susercontent.com/file/bc2a874caeee705449c164be385b796c" alt="">
+              </li>
+              <li class="footer-item-1">
+                <img src="https://down-vn.img.susercontent.com/file/a0a9062ebe19b45c1ae0506f16af5c16" alt="">
+                <img src="https://down-vn.img.susercontent.com/file/2c46b83d84111ddc32cfd3b5995d9281" alt="">
+                <img src="https://down-vn.img.susercontent.com/file/5e3f0bee86058637ff23cfdf2e14ca09" alt="">
+              </li>
+            </ul>
+          </div>
+          <div class="col l-2-4 m-4 c-6">
+            <h3  class="footer__heading"> Phương thức giao hàng</h3>
+            <ul class="footer-list">
+              <li class="footer-item-1">
+                <img src="https://down-vn.img.susercontent.com/file/vn-50009109-159200e3e365de418aae52b840f24185" alt="">
+                <img src="https://down-vn.img.susercontent.com/file/0d349e22ca8d4337d11c9b134cf9fe63" alt="">
+                <img src="https://down-vn.img.susercontent.com/file/6e3be504f08f88a15a28a9a447d94d3d" alt="">
+              </li>
+              <li class="footer-item-1">
+                <img src="https://down-vn.img.susercontent.com/file/vn-50009109-64f0b242486a67a3d29fd4bcf024a8c6" alt="">
+                <img src="https://down-vn.img.susercontent.com/file/59270fb2f3fbb7cbc92fca3877edde3f" alt="">
+                <img src="https://down-vn.img.susercontent.com/file/vn-50009109-ec3ae587db6309b791b78eb8af6793fd" alt="">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="roww">
+          <div class="col l-12 m-12 c-12">
+          <p class="footer_text">© 2024 - Bản quyền thuộc về Công ty TNHH Đức Vũ</p>
+        </div>
+      </div>
+      </div>
+    </footer>
+</body>
+</html>
